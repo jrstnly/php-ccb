@@ -181,7 +181,7 @@ class CCB {
 					$name = trim($part);
 					$value = '';
 				}
-				$this->db->performQuery("INSERT INTO ccb_settings (Name,Value) VALUES('$name', '$value') ON DUPLICATE KEY UPDATE Value='$value'");
+				//$this->db->performQuery("INSERT INTO ccb_settings (Name,Value) VALUES('$name', '$value') ON DUPLICATE KEY UPDATE Value='$value'");
 				$headers[$name] = $value;
 			}
 		}
