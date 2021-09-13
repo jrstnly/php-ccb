@@ -12,5 +12,5 @@ composer config repositories.php-ccb vcs https://github.com/jrstnly/php-ccb.git
 
 Add to composer required packages
 ```
-composer require jrstnly/php-ccb:dev-master
+composer require jrstnly/php-ccb:dev-main
 ```
