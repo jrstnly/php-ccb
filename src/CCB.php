@@ -415,5 +415,5 @@ class CCB {
 		return $this->headers;
 		$this->debug = false;
 	}
-
+}
 ?>
