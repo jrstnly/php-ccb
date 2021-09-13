@@ -415,5 +415,48 @@ class CCB {
 		return $this->headers;
 		$this->debug = false;
 	}
+
+	/*********************** OTHER FUNCTIONS **********************/
+	public function get_phone($type, $arr) {
+		$number = "";
+		if (isset($arr['phones']) && isset($arr['phones']['phone'])) {
+			$phones = $arr['phones']['phone'];
+			foreach ($phones as $phone) {
+				if ($phone['attributes']['type'] == $type) {
+					$number = preg_replace('/[^0-9,]|,[0-9]*$/','',$phone['value']);
+				}
+			}
+		}
+		return $number;
+	}
+	public function get_phone_number($type, $phones) {
+		$number = "";
+		if (isset($phones)) {
+			foreach ($phones as $phone) {
+				if ($phone->attributes()->type == $type && isset($phone[0])) {
+					$number = preg_replace('/[^0-9,]|,[0-9]*$/','',$phone[0]);
+				}
+			}
+		}
+		return $number;
+	}
+	public function get_user_defined_field($num, $udf) {
+		$ret = (object)array('label'=>'','selection'=>'');
+		$str = "udf_".$num;
+		foreach ($udf as $key => $value) {
+			if ($value->name == $str) $ret = $value;
+		}
+		return $ret;
+	}
+	function get_address_by_type($type, $addresses) {
+		$ret = false;
+		if (count((array)$addresses) > 0) {
+			foreach ($addresses as $key => $value) {
+				if ($value->address->attributes()->type == $type) $ret = $value->address;
+			}
+		}
+		return $ret;
+	}
+
 }
 ?>
