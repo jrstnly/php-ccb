@@ -136,6 +136,7 @@ class CCB {
 		return $this->formatData($ret["body"]);
 	}
 	private function execute($ch) {
+		/*
 		$last_request = $this->db->getNameValueRecords("SELECT * FROM `ccb_settings` WHERE `Name`='X-RateLimit-Reset' OR `Name`='X-RateLimit-Limit' OR `Name`='X-RateLimit-Remaining'");
 		if ((int)$last_request['X-RateLimit-Limit'] >= 120)
 			$divisor = 15;
@@ -162,7 +163,7 @@ class CCB {
 				sleep($sleep);
 			}
 		}
-
+		*/
 		$ret = curl_exec($ch);
 		$code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
