@@ -1,0 +1,17 @@
+{
+    "name": "jrstnly/php-ccb",
+    "type": "library",
+    "authors": [
+        {
+            "name": "JR Stanley",
+            "email": "jr@jrstn.ly"
+        }
+    ],
+    "autoload": {
+        "psr-4" : {
+            "CCB\\" : "src"
+        }
+    },
+    "require": {},
+    "repositories": {}
+}
